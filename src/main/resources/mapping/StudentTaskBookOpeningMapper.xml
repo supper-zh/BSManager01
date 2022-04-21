@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.IStudentTaskBookOpeningDao">
+	<select id="showInfoByStudentId" parameterType="int" resultType="StudentTaskBookOpening">
+		select * from t_student_opening_report_task_book where studentId=#{studentId}
+	</select>
+	
+	<select id="showAllInfo" resultType="StudentTaskBookOpening">
+		select * from t_student_opening_report_task_book
+	</select>
+	
+		
+	<select id="showAllScores" parameterType="int" resultType="Map">
+		select * from t_thesis_title join t_topic on t_thesis_title.id = t_topic.thesisId join t_student on t_topic.studentId = t_student.id join t_student_opening_report_task_book on t_topic.studentId = t_student_opening_report_task_book.studentId where teacherId=#{teacherId}
+	</select>
+	
+	<insert id="addInfoByStudentId" parameterType="int">
+		insert into t_student_opening_report_task_book values(null,#{studentId},null,null,null,null,null,null,null,null,null,null,null,null,null)
+	</insert>
+	
+	<update id="uploadTaskBook">
+		update t_student_opening_report_task_book set studentTaskBook=#{studentTaskBook} where studentId=#{studentId}
+	</update>
+	
+	<update id="uploadOpening">
+		update t_student_opening_report_task_book set studentOpeningResport=#{studentOpeningResport} where studentId=#{studentId}
+	</update>
+	
+	<update id="uploadKeXingXing">
+		update t_student_opening_report_task_book set studentKeXingXing=#{studentKeXingXing} where studentId=#{studentId}
+	</update>
+	
+	<update id="uploadXuQiu">
+		update t_student_opening_report_task_book set studentXuQiu=#{studentXuQiu} where studentId=#{studentId}
+	</update>
+	
+	<update id="uploadGaiYao">
+		update t_student_opening_report_task_book set studentGaiYao=#{studentGaiYao} where studentId=#{studentId}
+	</update>
+	
+	<update id="uploadShuJuKu">
+		update t_student_opening_report_task_book set studentShuJuKu=#{studentShuJuKu} where studentId=#{studentId}
+	</update>
+	
+	<update id="resetTaskBook" parameterType="int">
+		update t_student_opening_report_task_book set studentTaskBook="" where studentId=#{studentId}
+	</update>
+	
+	<update id="resetOpening" parameterType="int">
+		update t_student_opening_report_task_book set studentOpeningResport="" where studentId=#{studentId}
+	</update>
+	
+	<update id="resetKeXingXing" parameterType="int">
+		update t_student_opening_report_task_book set studentKeXingXing="" where studentId=#{studentId}
+	</update>
+	
+	<update id="resetXuQiu" parameterType="int">
+		update t_student_opening_report_task_book set studentXuQiu="" where studentId=#{studentId}
+	</update>
+	
+	<update id="resetGaiYao" parameterType="int">
+		update t_student_opening_report_task_book set studentGaiYao="" where studentId=#{studentId}
+	</update>
+	
+	<update id="resetShuJuKu" parameterType="int">
+		update t_student_opening_report_task_book set studentShuJuKu="" where studentId=#{studentId}
+	</update>
+	
+	<select id="getInfoByTaskBookPath" resultType="StudentTaskBookOpening" parameterType="String">
+		select * from t_student_opening_report_task_book where studentTaskBook=#{studentTaskBook}
+	</select>
+	
+	<select id="getInfoByOpeningPath" resultType="StudentTaskBookOpening" parameterType="String">
+		select * from t_student_opening_report_task_book where studentOpeningResport=#{studentOpeningResport}
+	</select>
+	
+	<select id="getInfoByKeXingXingPath" resultType="StudentTaskBookOpening" parameterType="String">
+		select * from t_student_opening_report_task_book where studentKeXingXing=#{studentKeXingXing}
+	</select>
+	
+	<select id="getInfoByXuQiuPath" resultType="StudentTaskBookOpening" parameterType="String">
+		select * from t_student_opening_report_task_book where studentXuQiu=#{studentXuQiu}
+	</select>
+	
+	<select id="getInfoByGaiYaoPath" resultType="StudentTaskBookOpening" parameterType="String">
+		select * from t_student_opening_report_task_book where studentGaiYao=#{studentGaiYao}
+	</select>
+	
+	<select id="getInfoByShuJuKuPath" resultType="StudentTaskBookOpening" parameterType="String">
+		select * from t_student_opening_report_task_book where studentShuJuKu=#{studentShuJuKu}
+	</select>
+	
+	<update id="passOpening">
+		update t_student_opening_report_task_book set openscore=#{openscore} where studentId=#{studentId}
+	</update>
+	
+	<update id="passKexing">
+		update t_student_opening_report_task_book set kexingscore=#{kexingscore} where studentId=#{studentId}
+	</update>
+	
+	<update id="passXuqiu">
+		update t_student_opening_report_task_book set xuqiuscore=#{xuqiuscore} where studentId=#{studentId}
+	</update>
+	
+	<update id="passGaiyao">
+		update t_student_opening_report_task_book set gaiyaoscore=#{gaiyaoscore} where studentId=#{studentId}
+	</update>
+	
+	<update id="passShujuku">
+		update t_student_opening_report_task_book set shujukuscore=#{shujukuscore} where studentId=#{studentId}
+	</update>
+	
+</mapper>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.ITeacherTaskBookOpeningDao">
+	<select id="showInfo" parameterType="int" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where thesisTitleId=#{thesisTitleId}	
+	</select>
+	
+	<insert id="addTaskBook" parameterType="TeacherTaskBookOpening">
+		insert into t_teacher_opening_report_task_book values(null,#{teacherId},null,#{taskBook},null,null,null,null,#{description},#{thesisTitleId})
+	</insert>
+	
+	<insert id="addOpening" parameterType="TeacherTaskBookOpening">
+		insert into t_teacher_opening_report_task_book values(null,#{teacherId},#{openingReport},null,null,null,null,null,#{description},#{thesisTitleId})
+	</insert>
+	
+	<insert id="addKeXingXing" parameterType="TeacherTaskBookOpening">
+		insert into t_teacher_opening_report_task_book values(null,#{teacherId},null,null,#{keXingXing},null,null,null,#{description},#{thesisTitleId})
+	</insert>
+	
+	<insert id="addXuQiu" parameterType="TeacherTaskBookOpening">
+		insert into t_teacher_opening_report_task_book values(null,#{teacherId},null,null,null,#{xuQiu},null,null,#{description},#{thesisTitleId})
+	</insert>
+	
+	<insert id="addGaiYao" parameterType="TeacherTaskBookOpening">
+		insert into t_teacher_opening_report_task_book values(null,#{teacherId},null,null,null,null,#{gaiYao},null,#{description},#{thesisTitleId})
+	</insert>
+	
+	<insert id="addShuJuKu" parameterType="TeacherTaskBookOpening">
+		insert into t_teacher_opening_report_task_book values(null,#{teacherId},null,null,null,null,null,#{shuJuKu},#{description},#{thesisTitleId})
+	</insert>
+	
+	<update id="uploadTaskBook" parameterType="TeacherTaskBookOpening">
+		update t_teacher_opening_report_task_book set taskBook=#{taskBook} where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="uploadOpening" parameterType="TeacherTaskBookOpening">
+		update t_teacher_opening_report_task_book set openingReport=#{openingReport} where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="uploadKeXingXing" parameterType="TeacherTaskBookOpening">
+		update t_teacher_opening_report_task_book set keXingXing=#{keXingXing} where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="uploadXuQiu" parameterType="TeacherTaskBookOpening">
+		update t_teacher_opening_report_task_book set xuQiu=#{xuQiu} where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="uploadGaiYao" parameterType="TeacherTaskBookOpening">
+		update t_teacher_opening_report_task_book set gaiYao=#{gaiYao} where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="uploadShuJuKu" parameterType="TeacherTaskBookOpening">
+		update t_teacher_opening_report_task_book set shuJuKu=#{shuJuKu} where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<select id="showTeacherTaskBookOpeningById" parameterType="int" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where teacherId=#{teacherId}
+	</select>
+	
+	<update id="resetTaskBook" parameterType="int">
+		update t_teacher_opening_report_task_book set taskBook="" where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="resetOpening" parameterType="int">
+		update t_teacher_opening_report_task_book set openingReport="" where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="resetKeXingXing" parameterType="int">
+		update t_teacher_opening_report_task_book set keXingXing="" where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="resetXuQiu" parameterType="int">
+		update t_teacher_opening_report_task_book set xuQiu="" where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="resetGaiYao" parameterType="int">
+		update t_teacher_opening_report_task_book set gaiYao="" where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="resetShuJuKu" parameterType="int">
+		update t_teacher_opening_report_task_book set shuJuKu="" where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<select id="showInfoByThesisId" parameterType="int" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where thesisTitleId=#{thesisTitleId}
+	</select>
+	
+	<delete id="deleteInfo" parameterType="int">
+		delete from t_teacher_opening_report_task_book where thesisTitleId=#{thesisTitleId}
+	</delete>
+	
+	<select id="getTheisIdByTask" parameterType="String" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where taskBook=#{taskBook}
+	</select>
+	
+	<select id="getTheisIdByOpening" parameterType="String" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where openingReport=#{openingReport}
+	</select>
+	
+	<select id="getTheisIdByKeXingXing" parameterType="String" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where keXingXing=#{keXingXing}
+	</select>
+	
+	<select id="getTheisIdByXuQiu" parameterType="String" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where xuQiu=#{xuQiu}
+	</select>
+	
+	<select id="getTheisIdByGaiYao" parameterType="String" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where gaiYao=#{gaiYao}
+	</select>
+	
+	<select id="getTheisIdByShuJuKu" parameterType="String" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where shuJuKu=#{shuJuKu}
+	</select>
+</mapper>

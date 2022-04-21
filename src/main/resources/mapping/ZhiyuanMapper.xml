@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.IZhiyuanDao">
+	<select id="showAllZhiyuan" resultType="Map">
+		select * from t_zhiyuan join t_student on t_zhiyuan.studentId=t_student.id join t_thesis_title on t_zhiyuan.thesisId=t_thesis_title.id  where teacherId=#{teacherId}
+	</select>
+	
+	<select id="zhiyuanByStudentId" resultType="Zhiyuan">
+		select * from t_zhiyuan where studentId=#{studentId}
+	</select>
+	
+	<insert id="addZhiyuan" parameterType="Zhiyuan">
+		insert t_zhiyuan values(null,#{thesisId},#{studentId},#{selectTime})
+	</insert>
+	
+	<delete id="deleteZhiyuan" parameterType="int">
+		delete from t_zhiyuan where studentId=#{studentId}
+	</delete>
+	
+	<select id="getInfoByThesisId" resultType="Zhiyuan" parameterType="int">
+		select * from t_zhiyuan where thesisId=#{thesisId}
+	</select>
+</mapper>
