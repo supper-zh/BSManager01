@@ -22,7 +22,9 @@ import java.util.List;
  *
  */
 public interface IStudentDao {
+
 	Student selectStudent(int id);
+
 	int addStudent(Student student);
 	List<Student> showAllStudent();
 	int deleteStudent(int id);

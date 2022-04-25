@@ -42,7 +42,14 @@
 	<update id="uploadShuJuKu">
 		update t_student_opening_report_task_book set studentShuJuKu=#{studentShuJuKu} where studentId=#{studentId}
 	</update>
-	
+
+	<update id="ShuJuKu">
+
+
+	</update>
+
+
+
 	<update id="resetTaskBook" parameterType="int">
 		update t_student_opening_report_task_book set studentTaskBook="" where studentId=#{studentId}
 	</update>
@@ -110,5 +117,6 @@
 	<update id="passShujuku">
 		update t_student_opening_report_task_book set shujukuscore=#{shujukuscore} where studentId=#{studentId}
 	</update>
-	
+
+
 </mapper>

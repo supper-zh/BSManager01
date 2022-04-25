@@ -6,7 +6,7 @@
 	</select>
 	
 	<select id="zhiyuanByStudentId" resultType="Zhiyuan">
-		select * from t_zhiyuan where studentId=#{studentId}
+			select * from t_zhiyuan where studentId=#{studentId}
 	</select>
 	
 	<insert id="addZhiyuan" parameterType="Zhiyuan">

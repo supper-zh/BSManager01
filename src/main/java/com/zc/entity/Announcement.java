@@ -2,6 +2,7 @@ package com.zc.entity;
 
 import java.util.Date;
 
+
 public class Announcement {
 	private int id;
 	private String context;
