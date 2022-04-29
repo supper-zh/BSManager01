@@ -2,9 +2,9 @@ package com.zc.entity;
 
 public class User {
 	private int id;
-	private String userNo;
+	private String userNo; // 用户编号，用户名
 	private String password;
-	private int permission;
+	private int permission;  //用户权限
 	
 	public User() {
 		super();

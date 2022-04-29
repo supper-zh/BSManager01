@@ -29,7 +29,9 @@
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>教师登录</strong> </h1>
                             <div class="description">
-                            	
+								<%--								暂定--%>
+
+								<a href="${pageContext.request.contextPath}/quit">退出登录</a>
                             </div>
                         </div>
                     </div>

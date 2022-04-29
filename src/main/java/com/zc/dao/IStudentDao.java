@@ -33,7 +33,8 @@ public interface IStudentDao {
 	List<Student> showStudentOne1(String studentNo);
 	List<Student> showStudentOne2(String studentName);
 	List<Student> showStudentOne3(@Param("studentNo") String studentNo,@Param("studentName") String studentName);
-	
+
+	//通过学生编号，查询学生对象，参数studentNo,返回student
 	Student getInfoByNo(String studentNo);
 	
 	

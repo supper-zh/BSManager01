@@ -29,7 +29,8 @@
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>学生登录</strong> </h1>
                             <div class="description">
-                            	
+<%--								///--%>
+								<a href="${pageContext.request.contextPath}/quit">退出登录</a>
                             </div>
                         </div>
                     </div>
@@ -52,9 +53,11 @@
 			                        	<label class="sr-only" for="form-password"></label>
 			                        	<input type="password" placeholder="密码：" class="form-password form-control" id="password" name="password" required>
 			                        </div>
+
 			                        <div align="center">
 										<font size="4" color="red">${message}</font>
 									</div>
+
 			                        <button type="submit" class="btn">登录</button>
 			                    </form>
 			                    
@@ -64,13 +67,16 @@
                     
                 </div>
             </div>
-            
+
         </div>
+
         <!-- Javascript -->
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/scripts.js"></script>
+
+
 <!--         <script type="text/javascript">
         $("#login").click(function() {
 			$.ajax({

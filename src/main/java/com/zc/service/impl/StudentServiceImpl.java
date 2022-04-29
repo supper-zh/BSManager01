@@ -100,7 +100,7 @@ public class StudentServiceImpl implements IStudentService{
 		return students;
 	}
 
-
+	//通过学生编号，获得学生对象，参数studentNo,返回student
 	public Student getStudentByNO(String studentNo) {
 		// TODO Auto-generated method stub
 		Student student =studentDao.getInfoByNo(studentNo);

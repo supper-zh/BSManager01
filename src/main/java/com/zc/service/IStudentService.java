@@ -70,7 +70,8 @@ public interface IStudentService {
 	List<Student> showStudentOne2(String studentName);
 	
 	List<Student> showStudentOne3(String studentNo,String studentName);
-	
+
+	//接口：通过学生编号，获得学生对象，参数studentNo,返回student
 	Student getStudentByNO(String studentNo);
 	
 	List<ThesisTitle> availableTopic();

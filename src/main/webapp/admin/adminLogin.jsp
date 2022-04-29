@@ -5,8 +5,7 @@
 <head>
         <title>管理员登录</title>
 
-        <!-- CSS -->
-       	<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"> -->
+
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assets/css/form-elements.css">
@@ -29,7 +28,8 @@
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>管理员登录</strong> </h1>
                             <div class="description">
-                            	
+                                <%--								暂定--%>
+                                    <a href="${pageContext.request.contextPath}/quit">退出登录</a>
                             </div>
                         </div>
                     </div>
@@ -63,13 +63,14 @@
                     
                 </div>
             </div>
-            
         </div>
         <!-- Javascript -->
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/scripts.js"></script>
-    
+        <script src="assets/js/placeholder.js"></script>
+
+
 </body>
 </html>

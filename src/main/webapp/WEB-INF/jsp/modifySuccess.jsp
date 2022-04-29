@@ -7,7 +7,7 @@
 <title>修改成功</title>
 <style>
 	body{        
-	    background-image: url(images/stu.jpg);
+	    background-image: url(../../images/stu.jpg);
 	    height: 100%;
    		width: 100%;
 	}

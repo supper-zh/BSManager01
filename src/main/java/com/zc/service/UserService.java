@@ -12,7 +12,8 @@ import com.zc.entity.User;
  * 
  *
  */
-public interface IUserService {
+public interface UserService {
+	//验证登陆
 	public User login(String userNo,String password);
 	
 	public User getPassword(String userNo);

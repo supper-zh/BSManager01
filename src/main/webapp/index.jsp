@@ -10,9 +10,9 @@
 
 <style>
  	body{        
- 	    background-image: url(images/home.jpg); 
- 	    background-repeat:no-repeat; 
-    	background-size:100% 100%;
+ 	    background-image: url(images/home.png);
+ 	    background-repeat:no-repeat;
+		background-size:100% 100%;
     	-moz-background-size:100% 100%;
 	    background-attachment: fixed;
 	} 
@@ -43,17 +43,20 @@
 
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	    	<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录系统<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="${pageContext.request.contextPath}/student/studentLogin.jsp">学生登录</a></li>
+						<li><a href="${pageContext.request.contextPath}/teacher/teacherLogin.jsp">教师登录</a></li>
+						<li><a href="${pageContext.request.contextPath}/admin/adminLogin.jsp">教学秘书登录</a></li>
+						<li><a href="${pageContext.request.contextPath}/super/superLogin.jsp">系主任登录</a></li>
+					</ul>
+				</li>
+
 	        	<li><a href="#">公告查看</a></li>
 	       		<li><a href="#">文件下载</a></li>
 	       		<li><a href="#">答疑解惑</a></li>
-	       		<li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录系统<span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="${pageContext.request.contextPath}/student/studentLogin.jsp">学生登录</a></li>
-		            <li><a href="${pageContext.request.contextPath}/teacher/teacherLogin.jsp">教师登录</a></li>
-		            <li><a href="${pageContext.request.contextPath}/admin/adminLogin.jsp">管理员登录</a></li>
-		          </ul>
-		        </li>
+
 	      	</ul>
 	      	<form class="navbar-form navbar-right">
 	        	<div class="form-group">
