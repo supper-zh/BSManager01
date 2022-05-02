@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -47,9 +46,80 @@ public class UserController {
 	@Autowired
 	private IMajorService majorService;
 
-	@RequestMapping(value="/modifyPassword")
-	public String modifyPassword(Model model,String newPassword1,String currentUserNo) {
+	@RequestMapping(value="/login")
+	public String login(Integer permission,String userNo,String password,Model model,HttpServletRequest request) {
 
+        //这个当前用户验证的是user表中的信息，currentUser是user表中查询到的，
+        // 这时只有userNo，password和permission三个属性，要获取当前用户的详细信息还需要接下来的进一步查询//1.用户登录，返回查询到的用户对象
+        User currentUser = userService.login(userNo, password);
+        //控制台测试
+        System.out.println(currentUser + "验证登录");
+        System.out.println(permission);
+
+
+        if ("".equals(currentUser) || currentUser == null) {
+            model.addAttribute("message", "用户名或密码错误");
+            return "index.jsp";
+        }
+
+        if (permission == currentUser.getPermission()) {
+            //设置的是当前会话的失效时间1h,即设置非活跃间隔时间
+            HttpSession session = request.getSession();
+            session.setMaxInactiveInterval(3600);
+            session.setAttribute("currentUser", currentUser);
+            //1.学生登录验证
+            if (permission == 1) {
+                //2.验证当前登录用户的权限
+                //验证 t_student 表中的信息，
+            // 通过学生编号，获得学生对象，参数studentNo,返回student
+                Student student = studentService.getStudentByNO(userNo);
+                int majorId = student.getMajorId();
+                String majorName = majorService.getNameById(majorId);
+                student.setMajorName(majorName);
+                session.setAttribute("student", student);
+                // model.addAttribute("userNo", userNo);
+                return "student/main.jsp";
+            }
+            //2. 教师登录验证
+            if (permission == 2) {
+                // 在t_user表的信息，这时只有userNo，password和permission三个属性，要获取当前用户的详细信息还需要接下来的进一步查询
+                // session.setAttribute("currentUser", currentUser);
+                // 得到完整的teacher信息，从teacher表中查询到教师的完整信息，teacher表中保存了教师部门id
+                Teacher teacher = teacherService.showInfoByNo(userNo);
+                //下面通过教师部门的ID查询部门表department，得到部门名称
+                int depId = teacher.getDepartmentId();//由部门ID信息
+                String depName = departmentService.getNameById(depId);//由id得到部门名称
+                teacher.setDepartmentName(depName);//将查询到的本用户对应的部分名称信息，set给本用户对象
+                session.setAttribute("teacher", teacher);
+                //model.addAttribute("userNo", userNo);
+                return "teacher/main.jsp";
+            }
+            //3. 管理员登录验证
+            if (permission == 3) {
+                return "admin/main.jsp";
+            }
+        } else {
+            model.addAttribute("message", "用户类型选择错误！");
+            //return "error.jsp";
+            return "index.jsp";
+        }
+
+        return userNo;
+    }
+
+
+    //退出登录页面，返回到index.jsp首页
+    @RequestMapping(value="/quit")
+    public String quitSystem(Model model,HttpServletRequest request) {
+        //用于清除session的所有信息；销毁当前会话域中的所有属性
+        request.getSession().invalidate();
+
+        return "index.jsp";
+    }
+
+    //修改密码
+    @RequestMapping(value="/modifyPassword")
+	public String modifyPassword(Model model,String newPassword1,String currentUserNo) {
 		System.out.println("新的密码："+newPassword1);
 		System.out.println("账户："+currentUserNo);
 
@@ -58,6 +128,8 @@ public class UserController {
 		model.addAttribute("num", num);
 		return "modifySuccess.jsp";
 	}
+
+
 
 	//用户名管理员之一，教学秘书，permission=3
 	@RequestMapping(value="/admin/login")
@@ -74,7 +146,6 @@ public class UserController {
 			// request.getSession().setAttribute("userNo", userNo);
 			HttpSession session = request.getSession();
 			session.setMaxInactiveInterval(3600);
-			
 			session.setAttribute("currentUser", currentUser);
 			//model.addAttribute("userNo", userNo);
 
@@ -191,20 +262,6 @@ public class UserController {
 			return "../../student/studentLogin.jsp";
 		}
 	}
-
-
-
-
-	//退出登录页面，返回到index.jsp首页
-	@RequestMapping(value="/quit")
-	public String quitSystem(Model model,HttpServletRequest request) {
-
-		//用于清除session的所有信息；销毁当前会话域中的所有属性
-		request.getSession().invalidate();
-		
-		return "../../index.jsp";
-	}
-	
 
 	
 }

@@ -69,6 +69,7 @@ import java.util.Map;
  *
  */
 public interface ITeacherService {
+
 	int addTeacher(Teacher teacher);
 	
 	List<Teacher> showAllTeacher();

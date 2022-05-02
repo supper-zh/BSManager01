@@ -23,19 +23,23 @@
 					<li>查看公告</li>
 				</ul>
 				<p><font size="4px" color="red">${message }</font></p>
+
+
+
 				<table class="table ">
 					<thead>
 						<tr>
 							<th class="col-md-8">
-								<font size="4px">内容</font>
+								<font size="4px">内容简介</font>
 							</th>
 							<th class="col-md-3">
-								<font size="4px">时间</font>
+								<font size="4px">发布时间</font>
 							</th>
-							</div>
+
 						</tr>
 					</thead>
-					
+
+
 					<tbody>
 						<c:forEach items="${announcementList }" var="announce">
 							<c:url value="/admin/deleteAnnouncement" var="deleteUrl">

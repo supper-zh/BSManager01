@@ -108,7 +108,7 @@ function buildDoc(done) {
     args: sources
   }, function() {
       gulp.src(dest + '*.html', { base: "./" })
-      .pipe($.replace('<div id="jump_page">', '<div id="jump_page"><a class="source" href="../index.html"><<< back to documentation</a>'))
+      .pipe($.replace('<div id="jump_page">', '<div id="jump_page"><a class="source" href="../index.jsp"><<< back to documentation</a>'))
       .pipe($.replace('</body>', '<script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-37229467-1"]);_gaq.push(["_trackPageview"]);(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script></body>'))
       .pipe(gulp.dest('.'))
       .on('end', done);
@@ -124,7 +124,7 @@ function copyI18n(done) {
 }
 
 function writeVersion() {
-  return gulp.src(['index.html', 'doc/download.html', 'README.md'], { base: "./" })
+  return gulp.src(['index.jsp', 'doc/download.html', 'README.md'], { base: "./" })
     .pipe($.replace(/class="parsley-version">[^<]*</, `class="parsley-version">v${manifest.version}<`))
     .pipe($.replace(/releases\/tag\/[^"]*/, `releases/tag/${manifest.version}`))
     .pipe($.replace(/## Version\n\n\S+\n\n/, `## Version\n\n${manifest.version}\n\n`))

@@ -19,9 +19,9 @@
 				<div align="center">
 					<p><font color="red" size="5px">${message }</font></p>
 				</div>
-				<!-- <h4>管理员信息</h4> -->
+				<!-- <h4>系主任信息</h4> -->
 				<ul class="list-inline">
-					<li>管理员信息</li>
+					<li>系主任信息</li>
 				</ul>
 				<br>
 <%-- 				<p><font color="red" size="5px">${message }</font></p> --%>

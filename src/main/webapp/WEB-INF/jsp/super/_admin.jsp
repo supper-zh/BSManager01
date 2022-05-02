@@ -20,14 +20,13 @@
     <link href="/BSManager/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="/BSManager/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
+
     <!-- bootstrap-progressbar -->
     <link href="/BSManager/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
     <link href="/BSManager/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="/BSManager/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
     <!-- Custom Theme Style -->
     <link href="/BSManager/build/css/custom.min.css" rel="stylesheet">
   </head>
@@ -49,7 +48,7 @@
                 <img src="../images/admin.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>管理员主页</span>
+                <span>系主任主页</span>
                 <h2>${sessionScope.currentUser.userNo }</h2>
               </div>
             </div>
@@ -62,7 +61,14 @@
               <div class="menu_section">
                 <h3>信息管理</h3>
                 <ul class="nav side-menu">
-                  
+                    <li><a><i class="fa fa-leaf"></i> 教学秘书管理 <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+<%--                            这里跳转的应该是/super/adminAdd--%>
+                            <li><a href="${pageContext.request.contextPath}/admin/teacherAdd">添加教学秘书</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/showAllTeacher">教学秘书操作</a></li>
+                        </ul>
+                    </li>
+
                   <li><a><i class="fa fa-leaf"></i> 导师管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="${pageContext.request.contextPath}/admin/teacherAdd">添加导师</a></li>
@@ -157,56 +163,56 @@
 
 
         <!-- footer content -->
-<!--         <footer>
-          <div class="pull-right">
-            	成都信息工程大学 - <a href="https://colorlib.com">计算机学院</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        /footer content
-      </div>
-    </div> -->
+<%--       <footer>--%>
+<%--          <div class="pull-right">--%>
+<%--            	成都信息工程大学 - /footer content <a href="https://colorlib.com">计算机学院</a>--%>
+<%--          </div>--%>
+<%--          <div class="clearfix"></div>--%>
+<%--        </footer>--%>
 
-    <!-- jQuery -->
-    <script src="/BSManager/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="/BSManager/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="/BSManager/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="/BSManager/vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="/BSManager/vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="/BSManager/vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="/BSManager/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="/BSManager/vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="/BSManager/vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="/BSManager/vendors/Flot/jquery.flot.js"></script>
-    <script src="/BSManager/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="/BSManager/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="/BSManager/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="/BSManager/vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="/BSManager/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="/BSManager/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="/BSManager/vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="/BSManager/vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="/BSManager/vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="/BSManager/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="/BSManager/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="/BSManager/vendors/moment/min/moment.min.js"></script>
-    <script src="/BSManager/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="/BSManager/build/js/custom.min.js"></script>
+
+
+        <!-- jQuery -->
+        <script src="/BSManager/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="/BSManager/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="/BSManager/vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="/BSManager/vendors/nprogress/nprogress.js"></script>
+        <!-- Chart.js -->
+        <script src="/BSManager/vendors/Chart.js/dist/Chart.min.js"></script>
+        <!-- gauge.js -->
+        <script src="/BSManager/vendors/gauge.js/dist/gauge.min.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="/BSManager/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+        <!-- iCheck -->
+        <script src="/BSManager/vendors/iCheck/icheck.min.js"></script>
+        <!-- Skycons -->
+        <script src="/BSManager/vendors/skycons/skycons.js"></script>
+        <!-- Flot -->
+        <script src="/BSManager/vendors/Flot/jquery.flot.js"></script>
+        <script src="/BSManager/vendors/Flot/jquery.flot.pie.js"></script>
+        <script src="/BSManager/vendors/Flot/jquery.flot.time.js"></script>
+        <script src="/BSManager/vendors/Flot/jquery.flot.stack.js"></script>
+        <script src="/BSManager/vendors/Flot/jquery.flot.resize.js"></script>
+        <!-- Flot plugins -->
+        <script src="/BSManager/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+        <script src="/BSManager/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+        <script src="/BSManager/vendors/flot.curvedlines/curvedLines.js"></script>
+        <!-- DateJS -->
+        <script src="/BSManager/vendors/DateJS/build/date.js"></script>
+        <!-- JQVMap -->
+        <script src="/BSManager/vendors/jqvmap/dist/jquery.vmap.js"></script>
+        <script src="/BSManager/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+        <script src="/BSManager/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+        <!-- bootstrap-daterangepicker -->
+        <script src="/BSManager/vendors/moment/min/moment.min.js"></script>
+        <script src="/BSManager/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="/BSManager/build/js/custom.min.js"></script>
 	
   </body>
 </html>

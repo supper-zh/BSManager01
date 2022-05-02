@@ -1,8 +1,8 @@
 package com.zc.web;
 
 import com.alibaba.fastjson.JSONArray;
-import com.zc.entity.Department;
-import com.zc.service.IDepartmentService;
+import com.zc.entity.Major;
+import com.zc.service.IMajorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,26 +17,25 @@ import java.util.List;
  * 
  * @author zhangC
  * 
- * showAllDep() 显示所以院系信息
+ * showAllMajor() 获得所有专业信息
  *
  */
 
 @Controller
 
-public class DepartmentContraller {
+public class MajorController {
 	
 	@Autowired
-	private IDepartmentService departmentService;
+	private IMajorService majorService;
 	
-	@RequestMapping(value="/getAllPartment")
-	public String showAllDep(HttpServletResponse response,HttpServletRequest request) throws Exception {
-		List<Department> departments = departmentService.allDepartment();
-		//request.setAttribute("departments", departments);
+	@RequestMapping(value="/getAllMajor")
+	public String showAllMajor(HttpServletResponse response,HttpServletRequest request) throws Exception {
+		List<Major> majors = majorService.allMajor();
 		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter write = response.getWriter();
-		write.write(JSONArray.toJSONString(departments));
+		write.write(JSONArray.toJSONString(majors));
 		write.close();
-		return "admin/adminTeacherAdd.jsp";
+		return "admin/adminStudentAdd.jsp";
 	}
 }

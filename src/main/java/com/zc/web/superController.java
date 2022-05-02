@@ -76,8 +76,8 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping(value="/admin")
-public class AdminContraller {
+@RequestMapping(value="/super")
+public class superController {
 	
 	@Autowired
 	private ITeacherService teacherService;

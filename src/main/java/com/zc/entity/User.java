@@ -1,5 +1,8 @@
 package com.zc.entity;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class User {
 	private int id;
 	private String userNo; // 用户编号，用户名

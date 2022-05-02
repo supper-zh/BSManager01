@@ -13,7 +13,7 @@ module.exports = function (grunt) {
       development: {
         options: {
           pageUrls: [
-            'index.html',
+            'index.jsp',
             'examples/basic.html',
             'examples/clear-formatting.html',
             'examples/events.html',

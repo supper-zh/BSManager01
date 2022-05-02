@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="BSManager:Web2 exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/BSManager_Web2_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="BSManager/web/Web2" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="BSManager" />
+        </element>
+      </element>
+      <element id="artifact" artifact-name="BSManager:war" />
+    </root>
+  </artifact>
+</component>

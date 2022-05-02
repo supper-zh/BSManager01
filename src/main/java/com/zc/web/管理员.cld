@@ -862,7 +862,7 @@
         </net.java.amateras.uml.properties.BooleanPropertyDescriptor>
       </propertyDescriptors>
       <stereoType></stereoType>
-      <name>com.zc.web.AdminContraller</name>
+      <name>com.zc.web.AdminController</name>
       <path>/BSManager/src/main/java/com/zc/web/AdminContraller.java</path>
       <isAbstract>false</isAbstract>
     </net.java.amateras.uml.classdiagram.model.ClassModel>
