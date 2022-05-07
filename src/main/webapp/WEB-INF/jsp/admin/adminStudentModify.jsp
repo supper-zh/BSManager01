@@ -61,9 +61,15 @@
 						<div class="col-sm-10">
 							<select class="form-control" id="grade" name="grade">
 								<option value="${grade }">${grade }</option>
-								<option value="2013级">2013级</option>
-								<option value="2014级">2014级</option>
-								<option value="2015级">2015级</option>
+
+<%--								这里可以改成从数据库中查完之后动态显示--%>
+								<option value="2014级">2018级</option>
+								<option value="2013级">2019级</option>
+								<option value="2014级">2020级</option>
+								<option value="2014级">2021级</option>
+								<option value="2014级">2022级</option>
+								<option value="2014级">2023级</option>
+								<option value="2014级">2024级</option>
 							</select>
 						</div>
 					</div>

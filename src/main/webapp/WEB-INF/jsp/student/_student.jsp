@@ -38,7 +38,11 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="${pageContext.request.contextPath}/student/main" class="site_title"><i class="fa fa-paw"></i> <span>毕业设计管理系统</span></a>
+
+<%--              <a href="${pageContext.request.contextPath}/student/main" class="site_title"><i class="fa fa-paw"></i> <span>毕业设计管理系统</span></a>--%>
+    <%--                新的--%>
+    <a href="${pageContext.request.contextPath}/student/main" class="site_title" style="font-size: medium"><span >大学生毕业设计管理系统</span></a>
+
             </div>
 
             <div class="clearfix"></div>
@@ -46,11 +50,15 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="../images/stu.jpg" alt="..." class="img-circle profile_img">
+<%--                <img src="../images/stu.jpg" alt="..." class="img-circle profile_img">--%>
+    <img src="${pageContext.request.contextPath}/images/home-3.png" alt="..." class="img-circle profile_img">
               </div>
+
               <div class="profile_info">
                 <span>学生主页</span>
-                <h2>${sessionScope.student.studentName }</h2>
+                  <%--                小人图标--%>
+                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <h2>学生姓名：${sessionScope.student.studentName }</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -108,15 +116,15 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
+<%--              <a data-toggle="tooltip" data-placement="top" title="Settings">--%>
+<%--                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>--%>
+<%--              </a>--%>
+<%--              <a data-toggle="tooltip" data-placement="top" title="FullScreen">--%>
+<%--                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>--%>
+<%--              </a>--%>
+<%--              <a data-toggle="tooltip" data-placement="top" title="Lock">--%>
+<%--                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>--%>
+<%--              </a>--%>
               <a data-toggle="tooltip" data-placement="top" title="Logout" href="${pageContext.request.contextPath}/quit">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
@@ -130,25 +138,36 @@
           <div class="nav_menu">
             <nav>
               <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                  <%--                  全屏显示--%>
+                  <a id="menu_toggle"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
+
+              <%--                <a id="menu_toggle"><i class="fa fa-bars"></i></a>--%>
               </div>
 
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../images/stu.jpg" alt="">${sessionScope.student.studentName }
-                    <span class=" fa fa-angle-down"></span>
+                      <%--                    加个笑脸--%>
+                      <%--                      用户名直接显示--%>
+                      <img src="${pageContext.request.contextPath}/images/emotion-happy-line.png" alt="">${sessionScope.currentUser.userNo }
+                      <span class=" fa fa-angle-down"></span>
+<%--                    <img src="../images/stu.jpg" alt="">${sessionScope.student.studentName }--%>
+<%--                    <span class=" fa fa-angle-down"></span>--%>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> 个人信息</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>设置</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">帮助</a></li>
-                    <li><a href="${pageContext.request.contextPath}/student/studentLogin.jsp"><i class="fa fa-sign-out pull-right"></i> 退出登录</a></li>
+
+<%--                    <li>--%>
+<%--                      <a href="javascript:;">--%>
+<%--                        <span class="badge bg-red pull-right">50%</span>--%>
+<%--                        <span>设置</span>--%>
+<%--                      </a>--%>
+<%--                    </li>--%>
+<%--                    <li><a href="javascript:;">帮助</a></li>--%>
+<%--                    "${pageContext.request.contextPath}/index.jsp"--%>
+                      <%--                    还没有设置具体模块，先跳转到这里吧--%>
+                      <li><a href="/BSManager/student/announcement">帮助</a></li>
+                    <li><a href="${pageContext.request.contextPath}/index.jsp"><i class="fa fa-sign-out pull-right"></i> 退出登录</a></li>
                   </ul>
                 </li>
 

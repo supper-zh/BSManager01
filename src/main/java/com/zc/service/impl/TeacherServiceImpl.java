@@ -624,11 +624,17 @@ public class TeacherServiceImpl implements ITeacherService {
 		List<StudentTaskBookOpening> scores = studentTaskBookOpeningDao.showAllInfo();
 		return scores;
 	}
-	
 
 
+	@Override
+	public List<Teacher> showByPage(Integer start, Page page) {
+		Integer totalCount =teacherDao.count();
+		page.setTotalNumber(totalCount);
+		page.setCurrentPage(start);
+		List<Teacher> teachers=teacherDao.page(page);
+		return teachers;
+	}
 
 
-	
 
 }

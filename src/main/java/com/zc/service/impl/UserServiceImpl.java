@@ -2,11 +2,11 @@ package com.zc.service.impl;
 
 import com.zc.dao.IUserDao;
 import com.zc.entity.User;
-import com.zc.service.UserService;
+import com.zc.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 	
 	@Autowired
 	private IUserDao userDao;

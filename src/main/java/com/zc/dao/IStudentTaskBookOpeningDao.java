@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @date 2018-4-15
- * @author zhangC
+ * @date
+ * @author
  * 根据学生id 获得信息
  * 插入信息 只添加学生id
  * 通过学生id修改任务书路径
@@ -22,7 +22,7 @@ import java.util.Map;
  */
 
 public interface IStudentTaskBookOpeningDao {
-	
+//	select * from t_student_opening_report_task_book where studentId=#{studentId}
 	StudentTaskBookOpening showInfoByStudentId(int studentId);
 	
 	int addInfoByStudentId(int studentId);

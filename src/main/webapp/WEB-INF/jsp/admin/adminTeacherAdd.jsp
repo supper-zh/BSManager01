@@ -14,7 +14,7 @@
 	<div class="container">
 		<jsp:include page="_admin.jsp" />
 	</div>
-	
+
 	<div class="right_col" role="main" style="height:656px">
 		<div class="row">
 			<div class="col-md-8">
@@ -32,14 +32,15 @@
 							<input type="text" class="form-control" id="teacherNo" name="teacherNo">
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label class="col-sm-2 control-label">导师姓名:</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="teacherName" name="teacherName">
 						</div>
+
 					</div>
-					
+
 					<div class="form-group">
 						<label for="firstname" class="col-sm-2 control-label">性别:</label>
 						<div class="col-sm-10">
@@ -49,7 +50,7 @@
 							</select>
 						</div>
 					</div>
-					
+<%--					???--%>
 					<div class="form-group">
 						<label for="department" class="col-sm-2 control-label">所在院系:</label>
 						<div class="col-sm-10">
@@ -58,7 +59,7 @@
 							</select>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label for="firstname" class="col-sm-2 control-label">职称:</label>
 						<div class="col-sm-10">
@@ -69,21 +70,22 @@
 							</select>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label for="firstname" class="col-sm-2 control-label">联系电话:</label>
 						<div class="col-sm-10">
 							<input type="number" class="form-control" id="phone" name="phone" onblur="verify();" >
 						</div>
 					</div>
-					
+
 					<div class="form-group">
+
 						<label for="firstname" class="col-sm-2 control-label">邮箱:</label>
 						<div class="col-sm-10">
-							<input type="number" class="form-control" id="email" name="email" onblur="verify();" >
+							<input type="email" class="form-control" id="email" name="email" onblur="verify();" >
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 							<div class="col-sm-3"></div>

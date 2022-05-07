@@ -170,14 +170,16 @@ public class StudentController {
 		List<ThesisTitle> thesisList = teacherService.showAllThesisTitle();
 		
 		Student student = studentService.getStudentByNO(userNo);
+
 		int studentId = student.getId();
+		//通过学生用户id查询该学生的选题情况
 		Topic topic = studentService.chosenThesisTitle(studentId);
 		//ThesisTitle title = teacherService.getThesisInfoByThesisId(topic.getThesisId());
 		
 		//ThesisInformation topic2 = studentService.getInfoByStudentId(studentId);
 		if(topic == null || "".equals(topic)) {
 			model.addAttribute("thesisTitleList", thesisList);
-			System.out.println("查询到的课题有："+thesisList);
+			System.out.println("查询到的课题有："+thesisList);//测试
 			return "student/studentThesis.jsp";
 		}else {
 			System.out.println(topic);
@@ -197,6 +199,7 @@ public class StudentController {
 		String studentNo = currnetUser.getUserNo();
 		Student student = studentService.getStudentByNO(studentNo);
 		int studentId = student.getId();
+		//topic 论文选题
 		Topic topic = studentService.chosenThesisTitle(studentId);
 		Zhiyuan zhiyuan = studentService.chosenZhiyuan(studentId);
 		if(topic == null || "".equals(topic)) {
@@ -319,6 +322,7 @@ public class StudentController {
 	}
 	
 	@RequestMapping(value="/sectionTask")
+
 	public String studentSectionTask(HttpServletRequest request,Model model) {
 		Student currentUser = (Student)request.getSession().getAttribute("student");
 		int studentId = currentUser.getId();
@@ -573,7 +577,9 @@ public class StudentController {
 			return "student/main.jsp";
 		}
 	}
-	
+
+
+	//文件下载有问题
 	@RequestMapping(value="/fileDownload")
 	public ResponseEntity<byte[]> fileDownload(HttpServletRequest request, @RequestParam("filePath") String filePath,@RequestParam("fileName") String fileName, Model model) throws Exception {
 		System.out.println(fileName);
@@ -629,6 +635,7 @@ public class StudentController {
 		String studentIdToString = String.valueOf(studentId);
 		
 		Topic topic = studentService.chosenThesisTitle(studentId);
+
 		if(topic == null || "".equals(topic)) {
 			model.addAttribute("message", "无法上传开题报告");
 			return "student/main.jsp";
@@ -893,16 +900,22 @@ public class StudentController {
 	public String studentwendangResult(HttpServletRequest request,Model model) {
 		Student currentUser = (Student)request.getSession().getAttribute("student");
 		int studentId = currentUser.getId();
+
 		StudentTaskBookOpening STBO = studentService.getSTBOInfoById(studentId);
 		Map<String, String> wendangList = new HashMap<String, String>();
-		wendangList.put("open", STBO.getOpenscore());
-		wendangList.put("kexing", STBO.getKexingscore());
-		wendangList.put("xuqiu", STBO.getXuqiuscore());
-		wendangList.put("gaiyao", STBO.getGaiyaoscore());
-		wendangList.put("shujuku", STBO.getShujukuscore());
-/*		if(STBO == null || "".equals(STBO)) {
+		//没有判空，会出现空指针异常2
+//		wendangList.put("open", STBO.getOpenscore());
+//		wendangList.put("kexing", STBO.getKexingscore());
+//		wendangList.put("xuqiu", STBO.getXuqiuscore());
+//		wendangList.put("gaiyao", STBO.getGaiyaoscore());
+//		wendangList.put("shujuku", STBO.getShujukuscore());
+
+		//之前注释掉了
+		if(STBO == null || "".equals(STBO)) {
 			model.addAttribute("message", "尚未提交开题报告");
-			return "student/studentOpeningResult.jsp";
+
+			return "student/studentWendangResult.jsp";
+
 		}else {
 			int completion = STBO.getCompletion();
 			if(completion == 0) {
@@ -912,12 +925,21 @@ public class StudentController {
 			}else {
 				model.addAttribute("message", "开题报告已通过");
 			}
-		}*/
-		System.out.println(wendangList);
+		}
+		wendangList.put("open", STBO.getOpenscore());
+		wendangList.put("kexing", STBO.getKexingscore());
+		wendangList.put("xuqiu", STBO.getXuqiuscore());
+		wendangList.put("gaiyao", STBO.getGaiyaoscore());
+		wendangList.put("shujuku", STBO.getShujukuscore());
+
+		System.out.println(wendangList);//测试一下
+
 		if(wendangList==null) {
 			model.addAttribute("message", "还未提交任何文档");
 		}
+
 		model.addAttribute("wendangList", wendangList);
+
 		return "student/studentWendangResult.jsp";
 	}
 	

@@ -115,7 +115,21 @@ public class TeacherController {
 	@Autowired
 	private IAnnouncementService announcementService;
 	
-	
+
+	//分页展示功能
+	@RequestMapping(value = "/teachers",method = RequestMethod.GET)
+	public String allUsers(Model m,Integer start){
+		if (start == null)
+			start=1;
+		Page page=new Page();
+		List<Teacher> teachers = teacherService.showByPage(start,page);
+		m.addAttribute("page",page);
+		m.addAttribute("users",teachers);
+		return "teaceher/listUser";
+	}
+
+
+
 	/*@RequestMapping(value="/add",method=RequestMethod.GET)
 	public String addTeacherForm(Model model) {
 		return "teacher/addTeacher.jsp";

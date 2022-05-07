@@ -17,5 +17,8 @@
 	<update id="modifyPassword" >
 		update t_user set password = #{password} where userNo=#{userNo}
 	</update>
-	
+
+
+
+
 </mapper>

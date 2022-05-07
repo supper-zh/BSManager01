@@ -57,6 +57,7 @@
 							</div>
 						</div>
 						<div class="col-md-0.5"></div>
+
 						<div class="col-md-2">
 							<div class="form-group">
 								<div>
@@ -65,6 +66,15 @@
 								</div>
 							</div>
 						</div>
+
+
+						<div>
+							<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/admin/showAllTeacher" method="post">
+								<button type="submit" id="showButton" name="showButton" class="btn btn-primary">查看所有学生</button>
+							</form>
+						</div>
+
+
 						<div class="col-md-5"></div>
 					</div>
 

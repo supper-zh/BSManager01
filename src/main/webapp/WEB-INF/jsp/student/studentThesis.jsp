@@ -59,26 +59,26 @@
 				</table>
 				</div>
 				</div>
-			<%-- <form action="${pageContext.request.contextPath}/student/selectTopic" method="post">
-				<input type="hidden" name="id" id="id" value="${sessionScope.student.id }" />
-				
-				<div class="col-md-5">
-					<select class="form-control" id="topic" name="topic">
-						<option value="">请选择...</option>
-					</select>
-				</div>
+<%--			新添加，另一种选题方法--%>
+<%--			 <form action="${pageContext.request.contextPath}/student/selectTopic" method="post">--%>
+<%--				<input type="hidden" name="id" id="id" value="${sessionScope.student.id }" />--%>
 
-				<div class="col-md-6">
-					
-					<textarea class="form-control" style="width: 350px;height: 120px" placeholder="点击查看课题描述" id="thesisDesc" name="thesisDesc" onclick="show();"></textarea>
-				</div>
-				<div class="col-md-1">
-					<div class="form-group">
-						<button class="btn btn-primary" type="submit">提交</button>
-					</div>
-				</div>
+<%--				<div class="col-md-5">--%>
+<%--					<select class="form-control" id="topic" name="topic">--%>
+<%--						<option value="">请选择...</option>--%>
+<%--					</select>--%>
+<%--				</div>--%>
+<%--				<div class="col-md-6">--%>
 
-			</form> --%>
+<%--					<textarea class="form-control" style="width: 350px;height: 120px" placeholder="点击查看课题描述" id="thesisDesc" name="thesisDesc" onclick="show();"></textarea>--%>
+<%--				</div>--%>
+<%--				<div class="col-md-1">--%>
+<%--					<div class="form-group">--%>
+<%--						<button class="btn btn-primary" type="submit">提交</button>--%>
+<%--					</div>--%>
+<%--				</div>--%>
+<%--			</form>--%>
+<%--			--%>
 		</div>
 	</div>
 </body>

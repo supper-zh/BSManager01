@@ -1,5 +1,7 @@
 package com.zc.web;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zc.entity.*;
 import com.zc.service.*;
 import org.apache.commons.io.FileUtils;
@@ -174,6 +176,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/teacherAdd",method=RequestMethod.POST)
 	public String addTeacher(HttpServletRequest request, String teacherNo, String teacherName,String sex,String phone,String email,String zhicheng,String department,Model model) throws Exception {
+
 		teacherNo = new String(teacherNo.getBytes("iso-8859-1"),"utf-8");
 		teacherName = new String(teacherName.getBytes("iso-8859-1"),"utf-8");
 		sex = new String(sex.getBytes("iso-8859-1"),"utf-8");
@@ -216,61 +219,86 @@ public class AdminController {
 		
 		
 	}
-	
-	@RequestMapping(value="/showAllTeacher")
-	public String adminShowAllTeacher(Model model,HttpServletResponse response) throws Exception {
+
+
+	@RequestMapping("/showAllTeacher2")
+	public String Example(Model model,@RequestParam(required = true, defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size) {
+		PageHelper.startPage(page, size);
+
 		List<Teacher> teachers = teacherService.showAllTeacher();
+
 		for(int i=0;i<teachers.size();i++) {
-			System.out.println(teachers.get(i));
+			System.out.println(teachers.get(i));//测试
 			int depmentId = teachers.get(i).getDepartmentId();
+			//部门表是个单独的表，在teacher中没有部门name字段，但是有部门id，也就是所在院系
 			String departmentName = departmentService.getNameById(depmentId);
 			teachers.get(i).setDepartmentName(departmentName);
 		}
-		
-		
-		model.addAttribute("teacherList", teachers);
-		System.out.println("全部教师集合："+teachers);
+		System.out.println("全部教师集合："+teachers);//测试
+
+		PageInfo<Teacher> pageInfo = new PageInfo<>(teachers);
+		model.addAttribute("teachers", pageInfo);
 		return "admin/adminTeacherManage.jsp";
 	}
-	
-	/*@RequestMapping(value="/shujufenxi",method=RequestMethod.GET)
-	public String adminShujuFenxi(Model model,HttpServletResponse response) throws Exception {
-		List<StudentTaskBookOpening> scores = teacherService.showAllInfo();
-		List<Integer> list = new ArrayList<Integer>();
-		for(int i=0;i<scores.size();i++) {
-			int temp=0;
-			if(scores.get(i).getOpenscore().equals("A"))
-				temp++;
-			if(scores.get(i).getStudentKeXingXing().equals("A"))
-				temp++;
-			if(scores.get(i).getXuqiuscore().equals("A"))
-				temp++;
-			if(scores.get(i).getGaiyaoscore().equals("A"))
-				temp++;
-			if(scores.get(i).getShujukuscore().equals("A"))
-				temp++;
-			if(temp==5) {
-				list.set(4, list.get(4)+1);
-			}
-			if(temp==4) {
-				list.set(3, list.get(3)+1);
-			}
-			if(temp==3) {
-				list.set(2, list.get(2)+1);
-			}
-			if(temp==2) {
-				list.set(1, list.get(1)+1);
-			}
-			if(temp==1) {
-				list.set(0, list.get(0)+1);
-			}
-			System.out.println(list);
-			
+
+
+	@RequestMapping(value="/showAllTeacher")
+	public String adminShowAllTeacher(Model model,HttpServletResponse response) throws Exception {
+
+		List<Teacher> teachers = teacherService.showAllTeacher();
+
+		for(int i=0;i<teachers.size();i++) {
+			System.out.println(teachers.get(i));//测试
+			int depmentId = teachers.get(i).getDepartmentId();
+			//部门表是个单独的表，在teacher中没有部门name字段，但是有部门id，也就是所在院系
+			String departmentName = departmentService.getNameById(depmentId);
+			teachers.get(i).setDepartmentName(departmentName);
 		}
-		
-		model.addAttribute("list", list);
-		return "admin/adminShujufenxi.jsp";
-	}*/
+		//发送到前端
+		model.addAttribute("teacherList", teachers);
+		System.out.println("全部教师集合："+teachers);//测试
+		return "admin/adminTeacherManage.jsp";
+	}
+
+//	//新加内容
+//	@RequestMapping(value="/shujufenxi",method=RequestMethod.GET)
+//	public String adminShujuFenxi(Model model,HttpServletResponse response) throws Exception {
+//		List<StudentTaskBookOpening> scores = teacherService.showAllInfo();
+//		List<Integer> list = new ArrayList<Integer>();
+//		for(int i=0;i<scores.size();i++) {
+//			int temp=0;
+//			if(scores.get(i).getOpenscore().equals("A"))
+//				temp++;
+//			if(scores.get(i).getStudentKeXingXing().equals("A"))
+//				temp++;
+//			if(scores.get(i).getXuqiuscore().equals("A"))
+//				temp++;
+//			if(scores.get(i).getGaiyaoscore().equals("A"))
+//				temp++;
+//			if(scores.get(i).getShujukuscore().equals("A"))
+//				temp++;
+//			if(temp==5) {
+//				list.set(4, list.get(4)+1);
+//			}
+//			if(temp==4) {
+//				list.set(3, list.get(3)+1);
+//			}
+//			if(temp==3) {
+//				list.set(2, list.get(2)+1);
+//			}
+//			if(temp==2) {
+//				list.set(1, list.get(1)+1);
+//			}
+//			if(temp==1) {
+//				list.set(0, list.get(0)+1);
+//			}
+//			System.out.println(list);
+//
+//		}
+//
+//		model.addAttribute("list", list);
+//		return "admin/adminShujufenxi.jsp";
+//	}
 	
 	@RequestMapping(value="/deleteTeacher")
 	public String adminDeleteTeacher(int id,Model model) {
@@ -454,6 +482,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/showAllStudent")
 	public String adminShowAllStudent(Model model,HttpServletResponse response) throws Exception {
+
 		List<Student> students = studentService.showAllStudent();
 		for(int i=0;i<students.size();i++) {
 			System.out.println(students.get(i));
@@ -461,8 +490,7 @@ public class AdminController {
 			String majorName = majorService.getNameById(majorId);
 			students.get(i).setMajorName(majorName);
 		}
-		
-		
+
 		model.addAttribute("studentList", students);
 		System.out.println("全部教师集合："+students);
 		return "admin/adminStudentManage.jsp";
@@ -470,7 +498,6 @@ public class AdminController {
 	
 	@RequestMapping(value="/modifyStudent")
 	public String adminModifyStudent(int id,Model model) {
-		
 		Student student = studentService.getStudentNameById(id);
 		String studentNo = student.getStudentNo();
 		String studentName= student.getStudentName();
@@ -480,8 +507,6 @@ public class AdminController {
 		String sex = student.getSex();
 		String phone = student.getPhone();
 		String email = student.getEmail();
-		
-		
 		model.addAttribute("id", id);
 		model.addAttribute("studentNo", studentNo);
 		model.addAttribute("studentName", studentName);
@@ -550,12 +575,16 @@ public class AdminController {
 	
 	@RequestMapping(value="/deleteStudent")
 	public String adminDeleteStudent(int id,Model model) {
-		// System.out.println(id);
+		 System.out.println(id);//测试
 		int num = studentService.deleteStudent(id);
-		//System.out.println("删除了"+num+"条数据！");
+		//无法删除数据
+		System.out.println("删除了"+num+"条数据！");//测试
 		model.addAttribute("message", "成功删除一条学生信息");
 		return "admin/adminStudentManage.jsp";
+		//回不去了？？？？
+//		return "admin/showAllStudent";
 	}
+
 	
 	@RequestMapping(value="/showStudentOne",method=RequestMethod.POST)
 	public String adminShowStudentOne(Model model,HttpServletResponse response, @RequestParam(value="studentNo",required=false) String studentNo,@RequestParam(value="studentName",required=false) String studentName) throws Exception {

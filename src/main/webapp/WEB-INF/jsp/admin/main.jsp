@@ -13,7 +13,8 @@
 		<jsp:include page="_admin.jsp" />
 	</div>
 	
-	<div class="right_col" role="main" style="height:656px">
+<%--	<div class="right_col" role="main" style="height:656px">--%>
+		<div class="right_col" role="main">
 		<div class="row">
 			<div class="col-md-8">
 				<div align="center">
@@ -30,9 +31,7 @@
 						<th width="20%" align="center"><font size="4px">当前账号:</font></th>
 						<td width="80%" align="center"><font size="4px">${sessionScope.currentUser.userNo }</font></td>
 					</tr>
-
 				</table>
-
 			</div>
 		</div>
 	</div>

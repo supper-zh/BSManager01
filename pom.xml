@@ -16,6 +16,17 @@
 			<version>4.12</version>
 		</dependency>
 
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/com.github.penggle/kaptcha &ndash;&gt;-->
+
+
+<!--分页插件-->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>5.1.1</version>
+		</dependency>
+
+
 
 		<!-- 1.日志 -->
 		<!-- 实现slf4j接口并整合 -->

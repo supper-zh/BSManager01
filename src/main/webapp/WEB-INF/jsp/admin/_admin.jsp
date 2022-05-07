@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="../images/favicon.ico" type="image/ico" />
 
-    <title>管理员主页</title>
+    <title>教学秘书主页</title>
 
     <!-- Bootstrap -->
     <link href="/BSManager/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +20,7 @@
     <link href="/BSManager/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="/BSManager/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
+
     <!-- bootstrap-progressbar -->
     <link href="/BSManager/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -38,19 +38,24 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="${pageContext.request.contextPath}/admin/main" class="site_title"><i class="fa fa-paw"></i> <span>毕业设计管理系统</span></a>
+<%--                新的--%>
+              <a href="${pageContext.request.contextPath}/admin/main" class="site_title" style="font-size: medium"><span >大学生毕业设计管理系统</span></a>
             </div>
 
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
+<%--                图标主页--%>
               <div class="profile_pic">
-                <img src="../images/admin.jpg" alt="..." class="img-circle profile_img">
+                <img src="${pageContext.request.contextPath}/images/home-3.png" alt="..." class="img-circle profile_img">
               </div>
+
               <div class="profile_info">
                 <span>管理员主页</span>
-                <h2>${sessionScope.currentUser.userNo }</h2>
+<%--                小人图标--%>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <h2>用户名：${sessionScope.currentUser.userNo }</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -66,7 +71,8 @@
                   <li><a><i class="fa fa-leaf"></i> 导师管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="${pageContext.request.contextPath}/admin/teacherAdd">添加导师</a></li>
-						<li><a href="${pageContext.request.contextPath}/admin/showAllTeacher">导师操作</a></li>
+<%--						<li><a href="${pageContext.request.contextPath}/admin/showAllTeacher">导师操作</a></li>--%>
+                        <li><a href="${pageContext.request.contextPath}/admin/showAllTeacher2">导师操作</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-graduation-cap"></i> 学生管理 <span class="fa fa-chevron-down"></span></a>
@@ -104,15 +110,17 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
+<%--              <a data-toggle="tooltip" data-placement="top" title="Settings">--%>
+<%--                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>--%>
+<%--              </a>--%>
+<%--              <a data-toggle="tooltip" data-placement="top" title="FullScreen">--%>
+<%--                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>--%>
+<%--              </a>--%>
+<%--              <a data-toggle="tooltip" data-placement="top" title="Lock">--%>
+<%--                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>--%>
+<%--              </a>--%>
+
+<%--              一键退出登录--%>
               <a data-toggle="tooltip" data-placement="top" title="Logout" href="${pageContext.request.contextPath}/quit">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
@@ -126,26 +134,35 @@
           <div class="nav_menu">
             <nav>
               <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+<%--                  全屏显示--%>
+                <a id="menu_toggle"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
               </div>
 
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../images/admin.jpg" alt="">${sessionScope.currentUser.userNo }
+<%--                    加个笑脸--%>
+<%--                      用户名直接显示--%>
+                    <img src="${pageContext.request.contextPath}/images/emotion-happy-line.png" alt="">${sessionScope.currentUser.userNo }
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> 个人信息</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>设置</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">帮助</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/adminLogin.jsp"><i class="fa fa-sign-out pull-right"></i> 退出登录</a></li>
+
+<%--                      //查看个人信息--%>
+                    <li><a href="/BSManager/admin/main"> 个人信息</a></li>
+
+<%--                    <li>--%>
+<%--                      <a href="javascript:;">--%>
+<%--                        <span class="badge bg-red pull-right">50%</span>--%>
+<%--                        <span>设置</span>--%>
+<%--                      </a>--%>
+<%--                    </li>--%>
+
+<%--                    还没有设置具体模块，先跳转到这里吧--%>
+                    <li><a href="/BSManager/admin/announcement">帮助</a></li>
+                    <li><a href="/BSManager/index.jsp"><i class="fa fa-sign-out pull-right"></i> 退出登录</a></li>
                   </ul>
+
                 </li>
 
               </ul>
@@ -156,16 +173,14 @@
 
 
 
-        <!-- footer content -->
-<!--         <footer>
-          <div class="pull-right">
-            	成都信息工程大学 - <a href="https://colorlib.com">计算机学院</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        /footer content
-      </div>
-    </div> -->
+<%--      footer content--%>
+<%--     <footer>--%>
+<%--          <div class="pull-right">--%>
+<%--            	anhui工程大学 - <a href="https://colorlib.com">计算机与信息学院</a>--%>
+<%--          </div>--%>
+<%--          <div class="clearfix"></div>--%>
+<%--     </footer>--%>
+
 
     <!-- jQuery -->
     <script src="/BSManager/vendors/jquery/dist/jquery.min.js"></script>
@@ -207,6 +222,6 @@
 
     <!-- Custom Theme Scripts -->
     <script src="/BSManager/build/js/custom.min.js"></script>
-	
+
   </body>
 </html>

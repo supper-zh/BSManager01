@@ -24,23 +24,7 @@
 					<li>/</li>
 					<li>导师操作</li>
 				</ul>
-				
 				<hr>
-				
-<%-- 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/admin/showAllTeacher" method="post">
-					<div class="row">
-						<div class="col-md-3">
-							<div class="form-group">
-								<label class="control-label">&nbsp;</label>
-								<div>
-									<button type="submit" id="showButton" name="showButton" class="btn btn-primary">查看全部教师</button>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-9"></div>
-					</div>
-				</form> --%>
-				
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/admin/showTeacherOne" method="post">
 					<div class="row">
 						<div class="col-md-2">
@@ -50,7 +34,11 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-0.5"></div>
+
+						<div class="col-md-0.5">
+
+						</div>
+
 						<div class="col-md-2">
 							<div class="form-group">
 								<div>
@@ -58,24 +46,34 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-0.5"></div>
+
 						<div class="col-md-2">
 							<div class="form-group">
 								<div>
 									<button type="submit" class="btn btn-primary">搜索导师</button>
+								</div>
+								<div>
+									<label >&nbsp;</label>
 									<p><font color="red" size="2px">${showMessage }</font></p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-5">
+						<div class="col-md-3">
+							<div class="form-group">
+								<div>
+									<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/admin/showAllStudent" method="post">
+									<button type="submit" id="showButton" name="showButton" class="btn btn-primary">查看全部教师</button>
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
-
 				</form>
-				
+
+
 				<table class="table">
 					<thead>
-						<tr>
+						<tr style="background-color: #0b99;">
 							<th>教师编号</th>
 							<th>教师姓名</th>
 							<th>性别</th>
@@ -84,30 +82,49 @@
 							<th>联系电话</th>
 							<th>邮箱</th>
 							<th>操作</th>
-							
 						</tr>
 					</thead>
-					
+
 					<tbody>
-						<c:forEach items="${teacherList }" var="teacher">
-							<tr>
-								<td>${teacher.teacherNo }</td>
-								<td>${teacher.teacherName }</td>
-								<td>${teacher.sex }</td>
-								<td>${teacher.departmentName}</td>
-								<td>${teacher.zhicheng }</td>
-								<td>${teacher.phone }</td>
-								<td>${teacher.email }</td>
-								<td>
-									<a class="btn btn-info btn-xs" href="<c:url value="/admin/modifyTeacher?id=${teacher.id }"/>"><i class="fa fa-pencil"></i>修改</a>
-									<a class="btn btn-danger btn-xs" href="<c:url value="/admin/deleteTeacher?id=${teacher.id }"/>"><i class="fa fa-trash-o"></i>删除</a>
-								</td>
-							</tr>
+						<%--		分页测试--%>
+						<c:forEach items="${teachers.list}" var="teachers">
+							<div>
+								<tr>
+									<td>${teachers.teacherNo }</td>
+									<td>${teachers.teacherName }</td>
+									<td>${teachers.sex }</td>
+									<td>${teachers.departmentName}</td>
+									<td>${teachers.zhicheng }</td>
+									<td>${teachers.phone }</td>
+									<td>${teachers.email }</td>
+									<td>
+										<a class="btn btn-info btn-xs" href="<c:url value="/admin/modifyTeacher?id=${teachers.id }"/>"><i class="fa fa-pencil"></i>修改</a>
+										<a class="btn btn-danger btn-xs" href="<c:url value="/admin/deleteTeacher?id=${teachers.id }"/>"><i class="fa fa-trash-o"></i>删除</a>
+									</td>
+								</tr>
+							</div>
 						</c:forEach>
 					</tbody>
+
+					<tfoot>
+					<tr>
+							<span>
+							<a href="<c:url value="/admin/showAllTeacher2?page=${teachers.pageNum-1}"/>">
+								上一页
+							</a>
+						</span>
+						<span>
+							<a href="${pageContext.request.contextPath}/admin/showAllTeacher2?page=${teachers.pageNum+1}">
+								下一页
+							</a>
+						</span>
+					</tr>
+					</tfoot>
 				</table>
-				
-			
+
+				</div>
+
+
 			</div>
 		</div>
 

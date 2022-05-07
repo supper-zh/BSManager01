@@ -32,11 +32,13 @@
 					</tr>
 
 					<c:forEach items="${fileList }" var="file">
+<%--						下载文件--%>
 						<c:url value="/student/fileDownload" var="downUrl">
 							<c:param name="fileName" value="${file.key }"></c:param>
 							<c:param name="filePath" value="${file.value }"></c:param>
 						</c:url>
 						<c:url value="/student/fileDelete" var="deleteUrl">
+<%--							删除文件--%>
 							<c:param name="fileName" value="${file.key }"></c:param>
 							<c:param name="filePath" value="${file.value }"></c:param>
 						</c:url>
@@ -44,6 +46,9 @@
 							<td>${file.key }</td>
 							<td>
 								<a class="btn btn-info btn-xs" href="${downUrl }">下&nbsp;载</a>
+<%--								修改并未实现--%>
+								<a class="btn btn-info btn-xs" href="#">修&nbsp;改</a>
+
 								&nbsp;&nbsp;&nbsp;
 								<a class="btn btn-danger btn-xs" href="${deleteUrl }">删&nbsp;除</a>
 							</td>

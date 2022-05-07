@@ -12,8 +12,11 @@ import java.io.IOException;
 /**
  * @date 2018-4-11
  * @author zhangC
+ *
  * 这是个过滤器 用于验证用户登陆 (查找session)
+ *
  * 把图片的路径过滤掉，否则会出现图片无法加载
+ *
  * 
  *
  */
@@ -40,7 +43,7 @@ public class LoginFilter implements Filter {
 				|| path.indexOf("studentLogin.jsp") > -1 || path.indexOf("adminLogin.jsp") > -1
 				|| path.indexOf("login") > -1 || path.indexOf("adminLogin.jsp") > -1 || path.indexOf(".jpg") > -1
 				|| path.indexOf(".html") > -1 || path.indexOf(".png") > -1 || path.indexOf(".css") > -1
-				|| path.indexOf(".js") > -1) {
+				|| path.indexOf(".js") > -1 ||path.indexOf(".do")>-1) {
 			chain.doFilter(servletRequest, servletResponse);
 			return;
 		}

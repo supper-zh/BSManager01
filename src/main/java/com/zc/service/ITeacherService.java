@@ -200,4 +200,8 @@ public interface ITeacherService {
 
 	List<StudentTaskBookOpening> showAllInfo();
 
+	//实现获取对应页数所展示的List
+	List<Teacher> showByPage(Integer start, Page page);
+
+
 }

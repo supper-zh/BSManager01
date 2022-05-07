@@ -5,7 +5,7 @@
 <!--  教师信息主页  -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>教师主页</title>
+<title>指导教师主页</title>
 <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +13,8 @@
 		<jsp:include page="_teacher.jsp" />
 	</div>
 	
-	<div class="right_col" role="main" style="height:800px">
+<%--	<div class="right_col" role="main" style="height:800px">--%>
+	<div class="right_col" role="main">
 		<div class="row">
 			<div class="col-md-8">
 				<div align="center">

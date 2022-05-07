@@ -31,7 +31,20 @@
 		<property name="configLocation" value="classpath:mybatis-config.xml"/>
 		<property name="typeAliasesPackage" value="com.zc.entity"/>
 		<property name="mapperLocations" value="classpath:mapping/*.xml"/>
-	
+
+		<property name="plugins">
+			<array>
+				<!-- 传入插件的对象 -->
+				<bean class="com.github.pagehelper.PageInterceptor">
+					<property name="properties">
+						<props>
+							<prop key="helperDialect">mysql</prop>
+							<prop key="reasonable">true</prop>
+						</props>
+					</property>
+				</bean>
+			</array>
+		</property>
 	</bean>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
