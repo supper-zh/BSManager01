@@ -5,6 +5,7 @@ public class ThesisPaper {
 	private int id;
 	private int studentId;
 	private String paperInfo;
+
 	public int getId() {
 		return id;
 	}

@@ -116,17 +116,7 @@ public class TeacherController {
 	private IAnnouncementService announcementService;
 	
 
-	//分页展示功能
-	@RequestMapping(value = "/teachers",method = RequestMethod.GET)
-	public String allUsers(Model m,Integer start){
-		if (start == null)
-			start=1;
-		Page page=new Page();
-		List<Teacher> teachers = teacherService.showByPage(start,page);
-		m.addAttribute("page",page);
-		m.addAttribute("users",teachers);
-		return "teaceher/listUser";
-	}
+
 
 
 
@@ -200,6 +190,8 @@ public class TeacherController {
 
 	@RequestMapping(value="/uploadOpening",method=RequestMethod.GET)
 	public String teacherUploadOpeningForm() {
+
+
 		return "teacher/teacherUploadOpeningReport.jsp";
 	}
 	
@@ -422,10 +414,16 @@ public class TeacherController {
 	
 	@RequestMapping(value="/studentManage")
 	public String teacherStudentManageForm(HttpServletRequest request,Model model) {
+
+
 		Teacher currentTeacher = (Teacher)request.getSession().getAttribute("teacher");
+
 		int teacherId = currentTeacher.getId();
-		
+
+		//通过教师id找到教师发布的所有课题，再通过该课题id找到选择该课题的学生
+		//出错了
 		List<Student> students = teacherService.getAllStudentInfo(teacherId);
+
 		for(int i=0;i<students.size();i++) {
 			int studentId = students.get(i).getId();
 			Topic topic = teacherService.getTopicInfoByStudentId(studentId);
@@ -816,6 +814,7 @@ public class TeacherController {
 			return "teacher/teacherThesisResult.jsp";
 		}else {
 			System.out.println("thesisTitle是："+thesisTitle);
+
 			model.addAttribute("id", thesisTitle.getId());
 			model.addAttribute("thesisTitleName", thesisTitle.getThesisName());
 			model.addAttribute("nandu", thesisTitle.getNandu());
@@ -838,10 +837,13 @@ public class TeacherController {
 		leixing = new String(leixing.getBytes("iso-8859-1"),"utf-8");
 		thesisDesc = new String(thesisDesc.getBytes("iso-8859-1"),"utf-8");
 		Teacher currentTeacher = (Teacher)request.getSession().getAttribute("teacher");
+
 		int teacherId = currentTeacher.getId();
+
 		String teacherName = currentTeacher.getTeacherName();
+
 		Date time = new Date();
-		
+
 		ThesisTitle thesis = new ThesisTitle();
 		thesis.setId(id);
 		thesis.setThesisName(thesisTitle);

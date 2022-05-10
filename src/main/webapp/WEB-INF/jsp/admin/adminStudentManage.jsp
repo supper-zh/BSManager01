@@ -22,23 +22,7 @@
 					<li>/</li>
 					<li>学生操作</li>
 				</ul>
-				
 				<hr>
-				
-<%-- 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/admin/showAllStudent" method="post">
-					<div class="row">
-						<div class="col-md-3">
-							<div class="form-group">
-								<label class="control-label">&nbsp;</label>
-								<div>
-									<button type="submit" id="showButton" name="showButton" class="btn btn-primary">点击查看全部学生</button>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-9"></div>
-					</div>
-				</form> --%>
-				
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/admin/showStudentOne" method="post">
 					<div class="row">
 						<div class="col-md-2">
@@ -56,7 +40,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-0.5"></div>
+
 
 						<div class="col-md-2">
 							<div class="form-group">
@@ -66,23 +50,18 @@
 								</div>
 							</div>
 						</div>
-
-
 						<div>
 							<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/admin/showAllTeacher" method="post">
 								<button type="submit" id="showButton" name="showButton" class="btn btn-primary">查看所有学生</button>
 							</form>
 						</div>
-
-
-						<div class="col-md-5"></div>
 					</div>
 
 				</form>
-				
+
 				<table class="table">
 					<thead>
-						<tr>
+						<tr style="background-color: #0b99;">
 							<th>学号</th>
 							<th>姓名</th>
 							<th>性别</th>
@@ -95,27 +74,38 @@
 					</thead>
 					
 					<tbody>
-						<c:forEach items="${studentList }" var="student" varStatus="loop">
+					<c:forEach items="${students.list}" var="students">
 							<tr>
-								<td>${student.studentNo }</td>
-								<td>${student.studentName }</td>
-								<td>${student.sex }</td>
-								<td>${student.majorName }</td>
-								<td>${student.grade }</td>
-								<td>${student.phone }</td>
-								<td>${student.email }</td>
+								<td>${students.studentNo }</td>
+								<td>${students.studentName }</td>
+								<td>${students.sex }</td>
+								<td>${students.majorName }</td>
+								<td>${students.grade }</td>
+								<td>${students.phone }</td>
+								<td>${students.email }</td>
 								<td>
-									<a class="btn btn-info btn-xs" href="<c:url value="/admin/modifyStudent?id=${student.id }"/>"><i class="fa fa-pencil"></i>修改</a>
-									<a class="btn btn-danger btn-xs" href="<c:url value="/admin/deleteStudent?id=${student.id }"/>"><i class="fa fa-trash-o"></i>删除</a>
+									<a class="btn btn-info btn-xs" href="<c:url value="/admin/modifyStudent?id=${students.id}"/>"><i class="fa fa-pencil"></i>修改</a>
+									<a class="btn btn-danger btn-xs" href="<c:url value="/admin/deleteStudent?id=${students.id }"/>"><i class="fa fa-trash-o"></i>删除</a>
 								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				
-			
 			</div>
 		</div>
+
+		<div class="row">
+						<span style="background-color: #0b99; padding: 3px;text-align:right;"  >
+							<a style="font-size: 13px" href="<c:url value="/admin/showAllStudent2?page=${students.pageNum-1}"/>">
+								上一页
+							</a>
+
+							<a href="${pageContext.request.contextPath}/admin/showAllStudent2?page=${students.pageNum+1}">
+								下一页
+							</a>
+						</span>
+		</div>
+
 
 	</div>
 </body>

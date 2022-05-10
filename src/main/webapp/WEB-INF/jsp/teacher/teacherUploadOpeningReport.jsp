@@ -25,7 +25,7 @@
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/uploadOpening" method="post" enctype="multipart/form-data">
 					<div class="col-md-3">
 						<select class="form-control" id="topic4Teacher" name="topic4Teacher">
-							<option value="">选择要发布的课题</option>
+							<option value="1">选择要发布的课题</option>
 						</select>
 					</div>
 					<div class="col-md-2">

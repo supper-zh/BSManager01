@@ -83,18 +83,18 @@
                   <li><a><i class="fa fa-user"></i> 学生管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="${pageContext.request.contextPath}/teacher/showAllZhiyuan">选择学生</a></li>
-						<li><a href="${pageContext.request.contextPath}/teacher/studentManage">查看学生信息</a></li>
+						<li><a href="${pageContext.request.contextPath}/teacher/studentManage">查看已选学生信息</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-flag"></i> 发布内容 <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-flag"></i> 发布阶段任务 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    	<li><a href="${pageContext.request.contextPath}/teacher/uploadTaskBook">发布任务书</a></li>
-						<li><a href="${pageContext.request.contextPath}/teacher/uploadOpening">发布开题报告</a></li>
-						<li><a href="${pageContext.request.contextPath}/teacher/uploadKeXingXing">发布可行性分析报告</a></li>
-						<li><a href="${pageContext.request.contextPath}/teacher/uploadXuQiu">发布需求分析报告</a></li>
-						<li><a href="${pageContext.request.contextPath}/teacher/uploadGaiYao">发概要设计报告</a></li>
-						<li><a href="${pageContext.request.contextPath}/teacher/uploadShuJuKu">发布数据库设计报告</a></li>
-						<li><a href="${pageContext.request.contextPath}/teacher/publishProgress">发布阶段任务</a></li>
+                    	<li><a href="${pageContext.request.contextPath}/teacher/uploadTaskBook">发布任务书模板</a></li>
+						<li><a href="${pageContext.request.contextPath}/teacher/uploadOpening">发布开题报告模板</a></li>
+						<li><a href="${pageContext.request.contextPath}/teacher/uploadKeXingXing">发布可行性分析报告模板</a></li>
+						<li><a href="${pageContext.request.contextPath}/teacher/uploadXuQiu">发布需求分析报告模板</a></li>
+						<li><a href="${pageContext.request.contextPath}/teacher/uploadGaiYao">发概要设计报告模板</a></li>
+						<li><a href="${pageContext.request.contextPath}/teacher/uploadShuJuKu">发布数据库设计报告模板</a></li>
+						<li><a href="${pageContext.request.contextPath}/teacher/publishProgress">发布阶段任务描述</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-check-square-o"></i> 审核文档 <span class="fa fa-chevron-down"></span></a>

@@ -24,22 +24,23 @@
 				</ul>
 				<p><font color="red" size="2px">${thesisMessage }</font></p>
 				
-				<!-- 点击查看上传的课题 -->
-				<%-- <form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/showAllThesisTitle"
-					method="post">
-					<div class="row">
-						<div class="col-md-3">
-							<div class="form-group">
-								<label class="control-label">&nbsp;</label>
-								<div>
-									<button type="submit" id="showButton" name="showButton" class="btn btn-primary">点击查看全部选题</button>
-									<p><font color="red" size="2px">${thesisMessage }</font></p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-9"></div>
-					</div>
-				</form> --%>
+<%--				<!-- 点击查看上传的课题 -->--%>
+<%--				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/showAllThesisTitle"--%>
+<%--					method="post">--%>
+<%--					<div class="row">--%>
+<%--						<div class="col-md-3">--%>
+<%--							<div class="form-group">--%>
+<%--								<label class="control-label">&nbsp;</label>--%>
+<%--								<div>--%>
+<%--									<button type="submit" id="showButton" name="showButton" class="btn btn-primary">点击查看全部选题</button>--%>
+<%--									<p><font color="red" size="2px">${thesisMessage }</font></p>--%>
+<%--								</div>--%>
+<%--							</div>--%>
+<%--						</div>--%>
+<%--						<div class="col-md-9"></div>--%>
+<%--					</div>--%>
+<%--				</form>--%>
+
 				<div class="x_panel">
    				 <div class="x_content">
 				<table class="table table-hover ">

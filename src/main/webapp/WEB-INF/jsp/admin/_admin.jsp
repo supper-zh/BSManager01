@@ -67,7 +67,18 @@
               <div class="menu_section">
                 <h3>信息管理</h3>
                 <ul class="nav side-menu">
-                  
+                    <li><a href="${pageContext.request.contextPath}/admin/modifyPassword"><i class="fa fa-edit"></i> 修改资料 </a>
+
+                    </li>
+<%--                    //系主任添加--%>
+                    <li><a><i class="fa fa-leaf"></i> 系主任管理 <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="${pageContext.request.contextPath}/admin/deanAdd">添加系主任</a></li>
+                            <%--						<li><a href="${pageContext.request.contextPath}/admin/showAllTeacher">导师操作</a></li>--%>
+                            <li><a href="${pageContext.request.contextPath}/admin/showAllDean">系主任操作</a></li>
+                        </ul>
+                    </li>
+
                   <li><a><i class="fa fa-leaf"></i> 导师管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="${pageContext.request.contextPath}/admin/teacherAdd">添加导师</a></li>
@@ -78,30 +89,21 @@
                   <li><a><i class="fa fa-graduation-cap"></i> 学生管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="${pageContext.request.contextPath}/admin/studentAdd">添加学生</a></li>
-						<li><a href="${pageContext.request.contextPath}/admin/showAllStudent">学生操作</a></li>
+						<li><a href="${pageContext.request.contextPath}/admin/showAllStudent2">学生操作</a></li>
                     </ul>
                   </li>
-                  
+                    <li><a href="${pageContext.request.contextPath}/admin/checkThesis2"><i class="fa fa-tags"></i> 审核选题 </a>
+                    </li>
                   <li><a><i class="fa fa-bullhorn"></i> 公告管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    	<li><a href="${pageContext.request.contextPath}/admin/announcement">查看公告</a></li>
+                    	<li><a href="${pageContext.request.contextPath}/admin/announcement2">查看公告</a></li>
 						<li><a href="${pageContext.request.contextPath}/admin/publishAnnouncement">发布公告</a></li>
                     </ul>
                   </li>
                   <li><a href="${pageContext.request.contextPath}/admin/shujufenxi"><i class="fa fa-bar-chart"></i> 数据分析 </a>
-
-                  </li>
-                  <li><a href="${pageContext.request.contextPath}/admin/checkThesis"><i class="fa fa-tags"></i> 审核选题 </a>
-
                   </li>
                   <li><a href="${pageContext.request.contextPath}/admin/showThesisPaper"><i class="fa fa-folder-open"></i> 查看已上传论文 </a>
-            
                   </li>
-                  <li><a href="${pageContext.request.contextPath}/admin/modifyPassword"><i class="fa fa-edit"></i> 修改资料 </a>
-                  
-                  </li>
-                  
-                  
                 </ul>
               </div>
               

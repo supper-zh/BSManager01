@@ -62,13 +62,11 @@
 						<label for="firstname" class="col-sm-2 control-label">年级:</label>
 						<div class="col-sm-10">
 							<select class="form-control" id="grade" name="grade">
-								<option value="2014级">2018级</option>
-								<option value="2013级">2019级</option>
-								<option value="2014级">2020级</option>
-								<option value="2014级">2021级</option>
-								<option value="2014级">2022级</option>
-								<option value="2014级">2023级</option>
-								<option value="2014级">2024级</option>
+								<option value="2018级">2018级</option>
+								<option value="2019级">2019级</option>
+								<option value="2020级">2020级</option>
+								<option value="2021级">2021级</option>
+								<option value="2022级">2022级</option>
 							</select>
 						</div>
 					</div>

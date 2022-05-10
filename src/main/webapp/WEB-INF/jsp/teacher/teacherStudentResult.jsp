@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,16 +16,15 @@
 	<div class="right_col" role="main" style="height:800px">
 		<div class="row">
 			<div class="col-md-12">
-				<!-- <h4>课题结果</h4> -->
+<%--				<!-- <h4>课题结果</h4> -->--%>
 				<ul class="list-inline">
 					<li>学生管理</li>
 					<li>/</li>
 					<li>选择学生</li>
 				</ul>
-				<p><font color="red" size="2px">${thesisMessage }</font></p>
-				
-				<!-- 点击查看上传的课题 -->
-				<%-- <form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/showAllThesisTitle"
+<%--				<p><font color="red" size="2px">${thesisMessage}</font></p>--%>
+<%--				<!-- 点击查看上传的课题 -->--%>
+				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/showAllThesisTitle"
 					method="post">
 					<div class="row">
 						<div class="col-md-3">
@@ -39,7 +38,7 @@
 						</div>
 						<div class="col-md-9"></div>
 					</div>
-				</form> --%>
+				</form>
 				<div class="x_panel">
  				   <div class="x_content">
 				<table class="table">

@@ -53,12 +53,12 @@
 	</servlet-mapping>
 	
 	
-	<jsp-config> 
-	    <jsp-property-group>
-	        <el-ignored>false</el-ignored>
-	    </jsp-property-group>
-	</jsp-config>
-	
+<!--	<jsp-config> -->
+<!--	    <jsp-property-group>-->
+<!--	        <el-ignored>false</el-ignored>-->
+<!--	    </jsp-property-group>-->
+<!--	</jsp-config>-->
+<!--	-->
 	
 <!--	 验证登陆-->
 <!--	<filter>-->

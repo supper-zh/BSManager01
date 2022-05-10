@@ -104,6 +104,11 @@ public class TeacherServiceImpl implements ITeacherService {
 		return teachers;
 	}
 
+	//通过教师编号，获得教师对象，参数teacherNo,返回teacher
+	public Teacher getTeacherByNo(String teacherNo){
+		Teacher teacher =teacherDao.getInfoByNo(teacherNo);
+		return teacher;
+	}
 
 	public Teacher showInfoByNo(String teacherNo) {
 		// TODO Auto-generated method stub
@@ -376,6 +381,7 @@ public class TeacherServiceImpl implements ITeacherService {
 	public List<Student> getAllStudentInfo(int teacherId) {
 		// TODO Auto-generated method stub
 		// thesisList2Db 为所有的信息包括未审核的和审核不通过的
+		//查thesis_title表中导师的课题
 		List<ThesisTitle> thesisList2Db = thesisTitleDao.showAllThesisTitle(teacherId);
 		
 		// thesisIdList 只是保留审核通过的信息中的课题id
@@ -386,13 +392,18 @@ public class TeacherServiceImpl implements ITeacherService {
 				thesisIdList.add(thesisId);
 			}
 		}
-		
+		System.out.println(thesisIdList);
 		// topicList 保存了学生id
 		List<Integer> topicList = new ArrayList<Integer>();
+
 		for(int i=0;i<thesisIdList.size();i++) {
-			Topic topic = topicDao.getInfoByThesisId(thesisIdList.get(i));
+			int a = thesisIdList.get(i);
+			System.out.println(a);//测试,
+			//返回值类型是Topic
+			Topic topic = topicDao.getInfoByThesisId(a);
 			if(topic==null || "".equals(topic)) {
-				
+
+
 			}else {
 				int studentId = topic.getStudentId();
 				topicList.add(studentId);
@@ -626,14 +637,14 @@ public class TeacherServiceImpl implements ITeacherService {
 	}
 
 
-	@Override
-	public List<Teacher> showByPage(Integer start, Page page) {
-		Integer totalCount =teacherDao.count();
-		page.setTotalNumber(totalCount);
-		page.setCurrentPage(start);
-		List<Teacher> teachers=teacherDao.page(page);
-		return teachers;
-	}
+//	@Override
+//	public List<Teacher> showByPage(Integer start, Page page) {
+//		Integer totalCount =teacherDao.count();
+//		page.setTotalNumber(totalCount);
+//		page.setCurrentPage(start);
+//		List<Teacher> teachers=teacherDao.page(page);
+//		return teachers;
+//	}
 
 
 

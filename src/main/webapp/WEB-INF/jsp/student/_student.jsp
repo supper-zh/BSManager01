@@ -79,7 +79,7 @@
                   <li><a><i class="fa fa-tags"></i> 课题管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${pageContext.request.contextPath}/student/thesis">选择课题</a></li>
-                      <li><a href="${pageContext.request.contextPath}/student/thesisResult">查看结果</a></li>
+                      <li><a href="${pageContext.request.contextPath}/student/thesisResult">查看选题结果</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-flag"></i> 进度管理 <span class="fa fa-chevron-down"></span></a>

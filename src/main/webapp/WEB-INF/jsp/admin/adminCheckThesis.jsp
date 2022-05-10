@@ -37,7 +37,7 @@
 					</thead>
 					
 					<tbody>
-						<c:forEach items="${thesisTitleList }" var="thesis" varStatus="loop">
+						<c:forEach items="${thesis.list}" var="thesis">
 							<tr>
 								<td >${thesis.thesisName }</td>
 								<td >${thesis.nandu }</td>
@@ -55,6 +55,17 @@
 					</tbody>
 				</table>
 			</div>
+		</div>
+		<div class="row">
+						<span style="background-color: #0b99; padding: 3px;text-align:right; "  >
+							<a style="font-size: 13px" href="<c:url value="/admin/checkThesis2?page=${thesis.pageNum-1}"/>">
+								上一页
+							</a>
+
+							<a href="${pageContext.request.contextPath}/admin/checkThesis2?page=${thesis.pageNum+1}">
+								下一页
+							</a>
+						</span>
 		</div>
 
 	</div>

@@ -39,13 +39,17 @@
 		select * from t_teacher where teacherNo=#{teacherNo}
 	</select>
 
-	<!--查询所有用户，并分页显示resultMap="BaseResultMap"-->
-	<select id="page" parameterType="com.zc.entity.Page"  resultType="com.zc.entity.Teacher">
-		SELECT * FROM t_teacher ORDER BY id limit #{page.dbIndex},#{page.dbNumber}
+	<select id="getInfoByNo" resultType="com.zc.entity.Teacher" parameterType="string">
+		select * from t_teacher where teacherNo=#{teacherNo}
 	</select>
 
-	<!--总条数-->
-	<select id="count"  resultType="java.lang.Integer">
-		SELECT count(*) FROM t_teacher
-	</select>
+	<!--	&lt;!&ndash;查询所有用户，并分页显示resultMap="BaseResultMap"&ndash;&gt;-->
+<!--	<select id="page" parameterType="com.zc.entity.Page"  resultType="com.zc.entity.Teacher">-->
+<!--		SELECT * FROM t_teacher ORDER BY id limit #{page.dbIndex},#{page.dbNumber}-->
+<!--	</select>-->
+
+<!--	&lt;!&ndash;总条数&ndash;&gt;-->
+<!--	<select id="count"  resultType="java.lang.Integer">-->
+<!--		SELECT count(*) FROM t_teacher-->
+<!--	</select>-->
 </mapper>

@@ -69,12 +69,12 @@
 						</div>
 					</div>
 				</form>
-
-
+				<div class="row">
+					<div class="col-sm-12">
 				<table class="table">
 					<thead>
 						<tr style="background-color: #0b99;">
-							<th>教师编号</th>
+							<th>教师工号</th>
 							<th>教师姓名</th>
 							<th>性别</th>
 							<th>所在院系</th>
@@ -86,7 +86,7 @@
 					</thead>
 
 					<tbody>
-						<%--		分页测试--%>
+
 						<c:forEach items="${teachers.list}" var="teachers">
 							<div>
 								<tr>
@@ -105,26 +105,24 @@
 							</div>
 						</c:forEach>
 					</tbody>
+				</table>
 
-					<tfoot>
-					<tr>
-							<span>
-							<a href="<c:url value="/admin/showAllTeacher2?page=${teachers.pageNum-1}"/>">
+					</div>
+				</div>
+
+				<div class="row">
+						<span style="background-color: #0b99; padding: 3px;text-align:right; "  >
+							<a style="font-size: 13px" href="<c:url value="/admin/showAllTeacher2?page=${teachers.pageNum-1}"/>">
 								上一页
 							</a>
-						</span>
-						<span>
+
 							<a href="${pageContext.request.contextPath}/admin/showAllTeacher2?page=${teachers.pageNum+1}">
 								下一页
 							</a>
 						</span>
-					</tr>
-					</tfoot>
-				</table>
-
 				</div>
 
-
+			</div>
 			</div>
 		</div>
 

@@ -1,8 +1,6 @@
 package com.zc.dao;
 
-import com.zc.entity.Page;
 import com.zc.entity.Teacher;
-
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -33,13 +31,16 @@ public interface ITeacherDao {
 	List<Teacher> showTeacherOne1(String teacherNo);
 	List<Teacher> showTeacherOne2(String teacherName);
 	List<Teacher> showTeacherOne3(@Param("teacherNo") String teacherNo,@Param("teacherName") String teacherName);
-	
+
+	//通过教师编号，查询教师对象，参数teacherNo,返回teacher
+	Teacher getInfoByNo(String teacherNo);
+
 	Teacher teacherInfoByNo(String teacherNo);
 
-	//分页查询展示教师
-	List<Teacher> page(@Param("page") Page page);
-
-	Integer count();
+//	//分页查询展示教师
+//	List<Teacher> page(@Param("page") Page page);
+//
+//	Integer count();
 
 
 

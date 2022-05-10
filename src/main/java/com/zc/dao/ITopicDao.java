@@ -23,7 +23,8 @@ public interface ITopicDao {
 	int addTopic(Topic topic);
 	
 	int deleteTopic(int studentId);
-	
+
+	//返回值是topic表的查询结果期望是一个topic而不是集合topic
 	Topic getInfoByThesisId(int thesisId);
 	
 	

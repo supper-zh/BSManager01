@@ -13,11 +13,13 @@
 	<div class="container">
 		<jsp:include page="_teacher.jsp" />
 	</div>
-	
+
 	<div class="right_col" role="main" style="height:800px">
 		<div class="row">
+
 			<div class="col-md-8">
 				<h4>修改课题</h4>
+
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/modifyThesisTitleToDb" method="post">
 					<input type="hidden" name="id" id="id" value="${id }"/>
 					<div class="form-group">
@@ -75,9 +77,15 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<div class="col-sm-3"></div>
+							<div class="col-sm-3">
+								<form role="form" style="float:left;" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/showAllThesisTitle" method="post">
+									<button type="submit" id="showButton" name="showButton" class="btn btn-primary">点击查看全部选题</button>
+									<p><font color="red" size="2px">${thesisMessage }</font></p>
+								</form>
+							</div>
+							<!-- 点击查看上传的课题 -->
 							<button type="submit" class="btn btn-primary col-sm-2">提交</button>
-							<div class="col-sm-2"></div>
+							<div class="col-sm-3"></div>
 							<button type="reset" class="btn btn-danger col-sm-2">重置</button>
 							<div class="col-sm-3"></div>
 						</div>

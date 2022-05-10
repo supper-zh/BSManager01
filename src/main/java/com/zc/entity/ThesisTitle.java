@@ -3,17 +3,18 @@ package com.zc.entity;
 import java.util.Date;
 
 public class ThesisTitle {
+
 	private int id;
 	private String thesisName;
 	private int teacherId;
-	private Date submitTime;
-	private int status;
+	private Date submitTime;//提交时间
+	private int status;//课题状态
 	private String inputMan;
-	private String description;
-	private String nandu;
-	private String liang;
-	private String from;
-	private String leixing;
+	private String description;//课题描述
+	private String nandu;// 	课题难度
+	private String liang;//课题工作量
+	private String from;//课题来源
+	private String leixing;//课题类型
 	
 	private String statusName;
 	
